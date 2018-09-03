@@ -1,0 +1,32 @@
+<html>
+	<head>	
+	</head>
+	<body>
+		<div id="app1">
+			{{message}}
+		</div>
+		<div id="app2" v-bind:title="message"><!--v-bind:被称作指令,用于绑定元素属性-->
+			鼠标悬停看到加载信息
+		</div>
+		<div id="app3">
+			<span v-if="seen">你是否能看见我</span><!--v-if:用于控制显示和隐藏--> <!--vue还引入了强大的过渡效果,具体过渡看官网介绍-->
+		</div>
+		<div id="app4">
+			<ol>
+				<li v-for="todo in todos"><!--v-for:循环遍历数组-->
+					{{todo.text}}
+				</li>
+			</ol>
+		</div>
+		<div id="app5">
+			<button v-on:click="releaseMessage">逆转消息</button>
+			<span>{{message}}</span>
+		</div>
+		<div id="app6">
+			<span>{{message}}</span>
+			<input v-model="message"/>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="index.js"></script>
+</html>
