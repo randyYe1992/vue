@@ -24,7 +24,7 @@ var app4 = new Vue({
 		todos:[
 			{text:"学习vue"},
 			{text:"学习springcloud微服务实战"},
-			{text:"学习牛的项目"}
+			{text:"学习牛的项目,"}
 		]
 	}
 })
@@ -35,7 +35,7 @@ var app5 = new Vue({
 	},
 	methods:{
 		releaseMessage:function(){
-			 this.message=this.message.split("").reverse().join('');
+			this.message=this.message.split("").reverse().join('');
 		}
 	}
 })
@@ -46,3 +46,44 @@ var app6 = new Vue({
 		message:"this is a message"
 	}
 })
+// 定义名为 todo-item 的新组件
+//我们应该能从父作用域将数据传到子组件才对。让我们来修改一下组件的定义，使之能够接受一个 prop
+Vue.component('todo-item', {
+	props:['todo'],
+	template: '<li>{{todo.text}}</li>'
+})
+var app6 = new Vue({
+	el:"#app7",
+	data:{
+		groceryList:[
+			{id:1,text:"水蜜桃"},
+			{id:2,text:"苹果"},
+			{id:3,text:"西红柿"}
+		]
+	}
+})
+/**
+ * 
+尽管这只是一个刻意设计的例子，但是我们已经设法将应用分割成了两个更小的单元。子单元通过 prop 接口与父单元进行了良好的解耦。
+我们现在可以进一步改进 <todo-item> 组件，提供更为复杂的模板和逻辑，而不会影响到父单元。
+在一个大型应用中，有必要将整个应用程序划分为组件，以使开发更易管理
+。在后续教程中我们将详述组件，不过这里有一个 (假想的) 例子，以展示使用了组件的应用模板是什么样的：
+<div id="app">
+  <app-nav></app-nav>
+  <app-view>
+    <app-sidebar></app-sidebar>
+    <app-content></app-content>
+  </app-view>
+</div>
+ */
+
+//生命周期钩子的函数
+var app7 = new Vue({
+	data:{
+		message:"app7 is created"
+	},
+	created:function(){
+	//	alert(this.message);
+	}
+})
+//vue 的生命周期,随着不断的学习,你会发现对vue的生命的理解很有必要
