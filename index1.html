@@ -1,0 +1,23 @@
+<html>
+	<head>	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	</head>
+	<body>
+		<div id="app1" v-once><!-- 使用v-once指令dom信息不会改变-->
+			{{message.split('').reverse().join('')}}
+		</div>
+		</br>
+		<div id="app2">
+			<input type="button" value="button" v-bind:disabled="isOpen"/>
+			<span>{{isOpen?'打开':'关闭'}}</span>
+		</div>
+		</br>
+		<div id="app3" :title="title">
+			鼠标悬停显示标题
+		</div>
+		</br>
+		<div id="app4" @click="openDialog" >点击弹出信息</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="index1.js"></script>
+</html>
